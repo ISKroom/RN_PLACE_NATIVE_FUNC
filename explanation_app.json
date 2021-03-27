@@ -1,0 +1,64 @@
+{
+  "expo": {
+    // プロジェクトの名前（ホームで表示される）
+    "name": "RN Guide",
+    // expo にデプロイされるときのURLに追加される
+    "slug": "rn-complete-guide",
+    // expo にデプロイされた際のページの visibility を制御する
+    "privacy": "public",
+    // どのプラットフォームでアプリを publish したいか
+    "platforms": ["ios", "android"],
+    // 自分で管理するバージョン番号
+    "version": "1.0.0",
+    // アプリ表示のオリエンテーションを指定できる
+    //（default:回転あり、portrait:縦に固定、landscape: 横に固定）
+    "orientation": "portrait",
+    // ホームスクリーンで表示されるアプリのアイコン(1024x1024推奨)(png)
+    "icon": "./assets/icon.png",
+    // スプラッシュ画面（ロード画面で表示される画像）(png)
+    // 参考: https://docs.expo.io/guides/splash-screens/
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain", // cover で画像を画面全体に引き延ばす
+      "backgroundColor": "#ffffff" // hex 限定
+    },
+    // Over the Air アップデートの設定
+    // この設定をしておけば expo publish で更新したアプリの中身を
+    // ユーザーがアプリを開いた段階で自動で確認して更新してくれるようになる
+    "updates": {
+      // アプリを開いてから何ミリセカンドの間はアプリを起動せずにアプリの更新を確認する
+      // 0 ならすぐにアプリを起動して、次回の起動時に更新する
+      "fallbackToCacheTimeout": 0
+    },
+    // expo サーバーにアップロードする asset を指定する（Googleドキュメントのノート参照）
+    // [] で全てのフォルダとファイルをアップロードすることになる
+    // ["**/*"] で何もアップロードしないことになる
+    "assetBundlePatterns": ["**/*"],
+    // プラットフォームごとの設定もできる
+    "ios": {
+      // アップルストアでユニークな文字列を記載する
+      "bundleIdentifier": "thisistestpackage_faeflagnabli",
+      // ビルドのバージョンを記載（自分で決めて管理する）
+      "buildNumber": "1.0.0",
+      "supportsTablet": true
+    },
+    "android": {
+      // GoogleStoreでユニークな文字列を記載する
+      "package": "thisistestpackage_faeflagnabli",
+      // ビルドのバージョンを記載（自分で決めて管理する）（ integer で記載する）
+      "versionCode": 1,
+      // 使用しているネイティブ機能で許可を要請する項目を記載する(Android のみ)
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "config": {
+        // もしGoogleのAPIを使用しているならここで記載しておく。
+        "googleMaps": {
+          "apiKey": "APIKEYHERE"
+        }
+      }
+    }
+  }
+}
